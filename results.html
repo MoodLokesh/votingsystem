@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Results</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Voting Results</h1>
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Candidate</th>
+            <th>Total Votes</th>
+        </tr>
+
+        {% for c in candidates %}
+        <tr>
+            <td>{{ c.name }}</td>
+            <td>{{ c.votes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Back to Login</a>
+</div>
+
+</body>
+</html>

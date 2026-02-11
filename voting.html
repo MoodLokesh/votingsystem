@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting Page</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'script.js' %}" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Voting Page</h1>
+
+    <div class="voter-card">
+        <p><strong>Voter:</strong> {{ request.session.user }}</p>
+        <p class="verified">Status: Verified</p>
+    </div>
+
+    <form id="voteForm">
+        {% csrf_token %}
+        <h3>Select Candidate</h3>
+
+        <label><input type="radio" name="candidate" value="A" required> Candidate A</label><br>
+        <label><input type="radio" name="candidate" value="B"> Candidate B</label><br>
+        <label><input type="radio" name="candidate" value="C"> Candidate C</label><br>
+
+        <button type="submit">Submit Vote</button>
+    </form>
+</div>
+
+</body>
+</html>
